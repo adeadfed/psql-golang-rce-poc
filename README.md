@@ -1,5 +1,5 @@
 # PostgreSQL RCE PoC via nested SQLi queries
-This is a supporting material for my article at {CHANGEME}. Go check it out if you haven't already!
+This is a supporting material for my article at my [website](https://adeadfed.com/posts/postgresql-select-only-rce/). Go check it out if you haven't already!
 
 ### Setting up the server
 1. Install the Postgresql Docker container
