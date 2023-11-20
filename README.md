@@ -1,12 +1,12 @@
 ### Setting up the server
 1. Install the Postgresql Docker container
 ```
-docker run --name poc-postgres-sqli-rce -e POSTGRES_PASSWORD=password -d postgres
+docker run --name poc-postgres-sqli-rce -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 ```
 2. Clone the repo and run this Go module
 ```
 git clone https://github.com/adeadfed/psql-golang-rce-poc
-cd psql-golang-rce-poc
+cd psql-golang-rce-poc/go_server
 go run poc
 ```
 
