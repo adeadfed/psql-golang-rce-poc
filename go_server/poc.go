@@ -87,7 +87,7 @@ func initDb() {
 }
 
 func main() {
-	pool, _ = pgxpool.Connect(context.Background(), "postgres://localhost/postgres?user=postgres&password=mysecretpassword")
+	pool, _ = pgxpool.Connect(context.Background(), "postgres://localhost/postgres?user=poc_user&password=poc_pass")
 
 	initDb()
 

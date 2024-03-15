@@ -6,7 +6,20 @@ This is a supporting material for my article at my [website](https://adeadfed.co
 ```
 docker run --name poc-postgres-sqli-rce -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 ```
-2. Clone the repo and run this Go module
+2. Connect to the DB and create `poc_user` with limited DB permissions 
+```
+CREATE USER poc_user WITH PASSWORD 'poc_pass'
+
+GRANT pg_read_server_files TO poc_user
+GRANT pg_write_server_files TO poc_user
+
+GRANT USAGE ON SCHEMA public TO poc_user
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE pg_largeobject TO poc_user
+
+GRANT EXECUTE ON FUNCTION lo_export(oid, text) TO poc_user
+GRANT EXECUTE ON FUNCTION lo_import(text, oid) TO poc_user
+```
+3. Clone the repo and run this Go module
 ```
 git clone https://github.com/adeadfed/psql-golang-rce-poc
 cd psql-golang-rce-poc/go_server
